@@ -1,0 +1,179 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Test Page</title>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+</head>
+<body>
+<div id="top" role="document">
+    <header>
+
+    </header>
+    <main>
+            <article id="text__tables">
+                <header><h1 style="text-align:center" th:text = "${custName}">Licenszek</h1></header>
+
+
+
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Title of the document</title>
+                </head>
+                <body>
+                <h1>PDF Example with iframe</h1>
+                <iframe src="https://zeninformatika.sharepoint.com/sites/Operations/Shared%20Documents/202208173_JA%20Solar%20New%20Energy%20Yangzhou%20CO.,%20Ltd._08_19_2022_EPR_5.pdf" width="100%" height="500px">
+                </iframe>
+                </body>
+                </html>
+
+
+
+
+                <!--<form action="/myContracts">
+                    <label for="id"></label>
+                    <select name="id" id="id">
+                        <option th:each="custitem : ${custItems}" th:text="${custitem.customer}" th:value="${custitem.billingo}">Volvo</option>
+                    </select>
+                    <br><br>
+                    <input type="submit"  value="Submit">
+                </form>-->
+
+                <form action="/myContracts" style="text-align:center">
+                    <input list="id" id="ida" name="id" placeholder="Válasszon ügyfelet!" />
+                    <datalist id="id">
+                        <option th:each="custitem : ${custItems}" th:text="${custitem.customer}">Volvo</option>
+                    </datalist>
+                    <input type="submit"  value="Submit">
+                </form>
+
+
+
+                <table class="center">
+                    <h2 style="text-align:center" >Licenszek</h2>
+                    <thead>
+                    <tr>
+                        <th>Terméknév</th>
+                        <th>Mennyiség</th>
+                        <th>Egységár</th>
+                        <th>Összesen</th>
+                        <th>Érvényesség kezdete</th>
+                        <th>Érvényesség vége</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${listItemsLive}">
+                        <td style="text-align:center" th:text="${item.productName}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.quantity}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.priceString}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.priceStringAll}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${#dates.format(item.validFrom, 'yyyy.MM.dd')}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${#dates.format(item.validTillm, 'yyyy.MM.dd')}">Table Cell 1</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="center">
+                    <h2 style="text-align:center" >Archív licenszek</h2>
+                    <thead>
+                    <tr>
+                        <th>Terméknév</th>
+                        <th>Mennyiség</th>
+                        <th>Egységár</th>
+                        <th>Összesen</th>
+                        <th>Érvényesség kezdete</th>
+                        <th>Érvényesség vége</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${listItemsArchive}">
+                        <td style="text-align:center" th:text="${item.productName}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.quantity}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.priceString}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.priceStringAll}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${#dates.format(item.validFrom, 'yyyy.MM.dd')}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${#dates.format(item.validTillm, 'yyyy.MM.dd')}">Table Cell 1</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="center">
+                    <h2 style="text-align:center" >TimeSheet</h2>
+                    <thead>
+                    <tr>
+                        <th>Tétel neve</th>
+                        <th>Projekt neve</th>
+                        <th>Készítette</th>
+                        <th>Időtartam</th>
+                        <th>Óradíj</th>
+                        <th>Összesen</th>
+                        <th>Időpont</th>
+                        <th>Fizetendő</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${worklogProjectData}">
+                        <td style="text-align:center" th:text="${item.workTitle}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.projectCode}">Table Cell 1</td>
+                        <!--<td style="text-align:center" th:text="${item.serviceType}">Table Cell 1</td>-->
+                        <td style="text-align:center" th:text="${item.workerName}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.workTime}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.employeeFee}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.workCost}">Table Cell 1</td>
+                        <td style="text-align:center" th:text="${item.dateOfWork}">Table Cell 1</td>
+                        <!--<td style="text-align:center" th:text="${#dates.format(item.dateOfWork, 'yyyy.MM.dd')}">Table Cell 1</td>-->
+                        <td style="text-align:center" th:text="${item.toBeInvoiced}">Table Cell 1</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <tr th:each="wpg : ${worklogProjectGroupped}">
+                    <h1 style="text-align:center" th:text="${wpg.key}">keyvalue</h1>
+                    <table class="center">
+                        <thead>
+                        <tr>
+                            <th>Tétel neve</th>
+                            <th>Projekt neve</th>
+                            <th>Készítette</th>
+                            <th>Időtartam</th>
+                            <th>Óradíj</th>
+                            <th>Összesen</th>
+                            <th>Időpont</th>
+                            <th>Fizetendő</th>
+                        </tr>
+                        </thead>
+                        <tr th:each="wpge : ${wpg.value}">
+                            <td style="text-align:center" th:text="${wpge.workTitle}">Table Cell 1</td>
+                            <td style="text-align:center" th:text="${wpge.projectCode}">Table Cell 1</td>
+                            <!--<td style="text-align:center" th:text="${item.serviceType}">Table Cell 1</td>-->
+                            <td style="text-align:center" th:text="${wpge.workerName}">Table Cell 1</td>
+                            <td style="text-align:center" th:text="${wpge.workTime}">Table Cell 1</td>
+                            <td style="text-align:center" th:text="${wpge.employeeFee}">Table Cell 1</td>
+                            <td style="text-align:center" th:text="${wpge.workCost}">Table Cell 1</td>
+                            <td style="text-align:center" th:text="${wpge.dateOfWork}">Table Cell 1</td>
+                            <!--<td style="text-align:center" th:text="${#dates.format(item.dateOfWork, 'yyyy.MM.dd')}">Table Cell 1</td>-->
+                            <td style="text-align:center" th:text="${wpge.toBeInvoiced}">Table Cell 1</td>
+                        </tr>
+                    </table>
+
+                </tr>
+
+
+            </article>
+    </main>
+
+</div>
+</body>
+</html>
