@@ -18,4 +18,4 @@ spring:
 
 server:
   forward-headers-strategy: native
-  port: 8100
+  port: 8080
